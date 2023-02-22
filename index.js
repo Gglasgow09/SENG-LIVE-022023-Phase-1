@@ -30,3 +30,58 @@ const pokemons = [
     likes: 11,
   },
 ];
+
+// to get something by id use #
+//to get something by class use .
+
+//const test2 = document.querySelector('div')
+//const test  = document.querySelectorAll('div')
+
+//console.log(test)
+//console.log(test2)
+
+//const welcomeP = document.createElement('p')
+//welcomeP.innerHTML = '<span class = "hello"> hello world </span>'
+
+//test2.appendChild(welcomeP)
+
+
+//. Select the form element with id `poke-form` using the .getElementById() method and store in the variable `pokeForm`. 
+// must use .getElementById
+//for is called poke-form
+//assign to variable 'pokeform'
+
+const pokeForm = document.getElementById('poke-form')
+console.log(pokeForm)
+
+//Select the div element with id `poke-container` using the .querySelector() method and store in the variable `pokeContainer`.
+const pokeContainer = document.querySelector('#poke-container')
+console.log(pokeContainer)
+
+//Select the label elements with class name `form-label` using the .getElementsByClassName() and store in the variable `labels`.
+const labels = document.getElementsByClassName('form-label')
+console.log(labels)
+//Select all the div elements using the .querySelectorAll() method and store in the variable `allDivs`
+const allDivs = document.querySelectorAll('div')
+console.log(allDivs)
+//Select the div element with id `lecture-goals` and use the .remove() method to remove the element from the DOM.
+const goals =document.getElementById('lecture-goals')
+goals.remove() 
+
+//6. Define a function `renderPokemon()` that will generate the HTML for each character card as seen in the image below:
+
+//<p align="center">
+ //   <img src="./assets/wireframe.png" width="550" height="400">
+//</p>
+
+const renderPokemon = () => {
+    const pokeDiv = document.querySelector('#poke-container')
+    pokemons.forEach((poke) => {
+       const pokeP = document.createElement('p')
+       pokeP.setAttribute('align', 'center')
+       pokeP.innerHTML = `<img src=${poke.img} width="550" height="400">` 
+       pokeDiv.appendChild(pokeP)
+    })
+}
+
+renderPokemon()
