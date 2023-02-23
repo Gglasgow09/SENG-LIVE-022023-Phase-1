@@ -2,7 +2,7 @@
 
 ## SWBAT
 
-- [ ] Understand static vs. Dynamic Websites
+- [ ] Understand static vs. Dynamic Websites 
 - [ ] Review JavaScript event types
 - [ ] Change the dom with events.
   - [ ] Remove content with a 'click' handler
