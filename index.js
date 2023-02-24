@@ -36,11 +36,11 @@ const pokeForm = document.querySelector("#poke-form");
 
 //JSON -JavaScript Object Notation stored as a string that goes back and forth across the web
 function getPokemon() {
-  fetch("http://localhost:3000/characters")
-  .then((response) => {
-    return (response.json())
+  fetch("http://localhost:3000/characters") // sends a request to our server 
+  .then((response) => { //then respond 
+    return (response.json()) //convert it to something we can use 
   })
-  .then((characters) => { 
+  .then((characters) => { //iterate it 
     characters.forEach((character) => {
       renderPokemon(character);
     });
@@ -118,6 +118,13 @@ function showCharacter(character) {
   fetch(`http://localhost:3000/characters/${character.id}`)
     .then((response) => response.json())
     .then((character) => {
-      console.log(character)
+      const pokemonCard = renderPokemon(character) //calling renderPokemon function 
+      pokemonCard.id = 'poke-show-card' //changing the id to 'poke-show-card
+      pokeContainer.replaceChildren(pokemonCard) //replacing it with one card 
     })
 }
+// just to recap. the function does a http get request using "fetch" 
+// which brings us back the contents at "localhost:3000/characters" 
+// in response. Which we format info a JSON object/tree and then return 
+// aka send to "characters". Which we then iterate over with foreach pulling 
+// out each pokemon and sending it to renderPokemon.

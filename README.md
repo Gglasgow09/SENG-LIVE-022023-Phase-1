@@ -27,7 +27,7 @@
 
 - Invoke renderPokemon() for the returned character
 
-- Update the id of the card returned by renderPokemon() to 'poke-show-card'
+- Update the (CSS) id of the card returned by renderPokemon() to 'poke-show-card'
 
 - Replace `pokeContainer` innerHTML with the matched character only. HINT: use `.replaceChildren()`
 
