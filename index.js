@@ -25,6 +25,18 @@ const createPokemon = (e) => {
   };
 
   // Make a POST request to persist the new character
+  //can take a method arg ('POST')
+  //needs  to have something called headers
+  //body : information to be sent to the server
+
+  const configObj ={
+    method: 'POST',
+    headers: {
+    "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newChar),
+  }
+  fetch("http://localhost:3000/characters", configObj)
 
   renderPokemon(newChar);
   pokeForm.reset();
@@ -49,6 +61,8 @@ const commentsForm = () => {
   form.id = "comment-form";
 
   // This is where we are going to attach an event listener to the comment form and POST a new comment.
+ 
+  pokeForm.addEventListener("submit", comment);
 
   let commentInput = document.createElement("input");
   commentInput.type = "text";
@@ -63,10 +77,31 @@ const commentsForm = () => {
   submit.type = "submit";
   submit.id = "submit";
 
-  form.append(commentInput, submit);
+  //fetch to comments here
+  
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const pokeId = document.querySelector(#poke-show-card).dataset.id;
+  })
+
+  const configObj = {
+    method: 'POST',
+    headers: {
+    "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      content: commentInput.value
+      character.id }),
+  }
+  fetch ('http://localhost:3000/comments', configObj)
+})
+  renderPokemon(comments-form);
+  pokeForm.reset();
+
+ form.append(commentInput, submit);
 
   return form;
-};
+
 
 function loadComments(pokeCard, char) {
   const commentsDiv = document.createElement("div");
